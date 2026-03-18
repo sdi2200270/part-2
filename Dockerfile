@@ -1,5 +1,5 @@
-FROM alpine
+FROM ubuntu:20.04
 
-RUN apk add gcc make git linux-headers musl-dev
+RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y nmap netcat
 
-RUN git clone https://github.com/HewlettPackard/wireless-tools/ && cd wireless-tools/wireless_tools && make CFLAGS='-Wno-error -Wno-implicit-function-declaration -Wno-int-conversion'
+RUN echo "weak ubuntu" 
