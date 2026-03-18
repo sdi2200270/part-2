@@ -1,5 +1,9 @@
-FROM alpine
+FROM ubuntu:19.04
 
-RUN apk add gcc make git linux-headers musl-dev
+RUN apt-get update && apt-get install -y \
+    curl \
+    wget \
+    net-tools \
+    && rm -rf /var/lib/apt/lists/*
 
-RUN git clone https://github.com/HewlettPackard/wireless-tools/ && cd wireless-tools/wireless_tools && make CFLAGS='-Wno-error -Wno-implicit-function-declaration -Wno-int-conversion'
+CMD ["echo", "Weak Ubuntu "]
